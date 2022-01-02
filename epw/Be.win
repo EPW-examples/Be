@@ -1,0 +1,10 @@
+begin projections
+ random
+end projections
+num_wann   6
+iprint   2
+dis_win_min    -5.000000000000
+dis_win_max  1000.000000000000
+dis_froz_min    -5.000000000000
+dis_froz_max    27.940129770844
+num_iter    5000

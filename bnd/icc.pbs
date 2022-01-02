@@ -1,0 +1,21 @@
+#!/bin/bash
+#SBATCH -N 1
+#SBATCH -p LM
+#SBATCH --ntasks-per-node 28
+#SBATCH -t 48:00:00
+#SBATCH --mem 200GB
+# echo commands to stdout 
+set -x
+
+module load mpi/gcc_mvapich
+module load gcc/7.3.0
+
+# run OpenMP program
+#mpirun -np 28 /home/yundi/qe-6.2.1-gcc/bin/pw.x -inp scf.in
+
+
+mpirun -np 28 /pylon5/mr5fpkp/yundi/qe-benchmark/q-e-mpich-gnu/bin/pw.x -npool 28 -inp scf.in
+mpirun -np 28 /pylon5/mr5fpkp/yundi/qe-benchmark/q-e-mpich-gnu/bin/pw.x -npool 28 -inp bnd.in
+
+# copy output file to persistent space
+#cp output.da $PROJECT

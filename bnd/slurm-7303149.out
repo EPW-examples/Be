@@ -1,0 +1,448 @@
++ module load mpi/gcc_mvapich
+++ /usr/bin/modulecmd bash load mpi/gcc_mvapich
++ eval LD_LIBRARY_PATH=/usr/mpi/gcc/mvapich2-2.3b-hfi/lib:/opt/intel/itac/2019.5.041/intel64/slib:/opt/intel/compilers_and_libraries_2019.5.281/linux/mpi/intel64/libfabric/lib:/opt/intel/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release:/opt/intel/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib:/opt/intel/compilers_and_libraries_2019.5.281/linux/ipp/lib/intel64:/opt/intel/compilers_and_libraries_2019.5.281/linux/compiler/lib/intel64_lin:/opt/intel/compilers_and_libraries_2019.5.281/linux/mkl/lib/intel64_lin:/opt/intel/compilers_and_libraries_2019.5.281/linux/tbb/lib/intel64/gcc4.7:/opt/intel/debugger_2019/libipt/intel64/lib:/opt/intel/compilers_and_libraries_2019.5.281/linux/daal/lib/intel64_lin ';export' 'LD_LIBRARY_PATH;LOADEDMODULES=psc_path/1.1:slurm/default:intel/19.5:xdusage/2.1-1:QuantumEspresso/6.0.0:cmake/3.7.2:mpi/gcc_mvapich' ';export' 'LOADEDMODULES;MANPATH=/usr/mpi/gcc/mvapich2-2.3b-hfi/man:/opt/packages/xdusage/2.1-1/share/man:/opt/intel/itac/2019.5.041/man:/opt/intel/clck/2019.5/man:/opt/intel/man/common:/opt/intel/compilers_and_libraries_2019.5.281/linux/mpi/man:/opt/intel/documentation_2019/en/debugger/gdb-ia/man/:/opt/packages/slurm/default/share/man:/usr/local/man:/usr/share/man:' ';export' 'MANPATH;PATH=/usr/mpi/gcc/mvapich2-2.3b-hfi/bin:/opt/packages/aws/cli/bin:/home/yundi/WIEN2k_18:/home/yundi/WIEN2k_18/SRC_structeditor/bin:/home/yundi/WIEN2k_18/SRC_IRelast/script-elastic:/home/yundi/github/wannier_tools/bin:/home/yundi/anaconda3/bin:/home/yundi/QuantumEspresso/qe-6.0/PW/tools:/opt/packages/QuantumEspresso/qe-6.2.1/bin:/opt/packages/cmake-3.7.2//bin:/opt/packages/QuantumEspresso/qe-6.0/bin:/usr/lib64/qt-3.3/bin:/opt/packages/xdusage/2.1-1/bin:/opt/intel/advisor_2019.5.0.602216/bin64:/opt/intel/vtune_amplifier_2019.6.0.602217/bin64:/opt/intel/inspector_2019.5.0.602103/bin64:/opt/intel/itac/2019.5.041/intel64/bin:/opt/intel/clck/2019.5/bin/intel64:/opt/intel/compilers_and_libraries_2019.5.281/linux/bin/intel64:/opt/intel/compilers_and_libraries_2019.5.281/linux/mpi/intel64/libfabric/bin:/opt/intel/compilers_and_libraries_2019.5.281/linux/mpi/intel64/bin:/opt/intel/debugger_2019/gdb/intel64/bin:/opt/packages/slurm/default/bin:/opt/packages/allocations:/opt/packages/interact/bin:/usr/lib64/ccache:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/puppet/bin:/opt/intel/parallel_studio_xe_2019.5.075/bin:/bin:/sbin:/opt/puppetlabs/bin:.:/home/yundi/WIEN2k_18:.:/home/yundi/.local/bin:/home/yundi/bin' ';export' 'PATH;_LMFILES_=/opt/modulefiles/psc_path/1.1:/opt/modulefiles/slurm/default:/opt/modulefiles/intel/19.5:/opt/modulefiles/xdusage/2.1-1:/opt/modulefiles/QuantumEspresso/6.0.0:/opt/modulefiles/cmake/3.7.2:/opt/modulefiles/mpi/gcc_mvapich' ';export' '_LMFILES_;'
+++ LD_LIBRARY_PATH=/usr/mpi/gcc/mvapich2-2.3b-hfi/lib:/opt/intel/itac/2019.5.041/intel64/slib:/opt/intel/compilers_and_libraries_2019.5.281/linux/mpi/intel64/libfabric/lib:/opt/intel/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release:/opt/intel/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib:/opt/intel/compilers_and_libraries_2019.5.281/linux/ipp/lib/intel64:/opt/intel/compilers_and_libraries_2019.5.281/linux/compiler/lib/intel64_lin:/opt/intel/compilers_and_libraries_2019.5.281/linux/mkl/lib/intel64_lin:/opt/intel/compilers_and_libraries_2019.5.281/linux/tbb/lib/intel64/gcc4.7:/opt/intel/debugger_2019/libipt/intel64/lib:/opt/intel/compilers_and_libraries_2019.5.281/linux/daal/lib/intel64_lin
+++ export LD_LIBRARY_PATH
+++ LOADEDMODULES=psc_path/1.1:slurm/default:intel/19.5:xdusage/2.1-1:QuantumEspresso/6.0.0:cmake/3.7.2:mpi/gcc_mvapich
+++ export LOADEDMODULES
+++ MANPATH=/usr/mpi/gcc/mvapich2-2.3b-hfi/man:/opt/packages/xdusage/2.1-1/share/man:/opt/intel/itac/2019.5.041/man:/opt/intel/clck/2019.5/man:/opt/intel/man/common:/opt/intel/compilers_and_libraries_2019.5.281/linux/mpi/man:/opt/intel/documentation_2019/en/debugger/gdb-ia/man/:/opt/packages/slurm/default/share/man:/usr/local/man:/usr/share/man:
+++ export MANPATH
+++ PATH=/usr/mpi/gcc/mvapich2-2.3b-hfi/bin:/opt/packages/aws/cli/bin:/home/yundi/WIEN2k_18:/home/yundi/WIEN2k_18/SRC_structeditor/bin:/home/yundi/WIEN2k_18/SRC_IRelast/script-elastic:/home/yundi/github/wannier_tools/bin:/home/yundi/anaconda3/bin:/home/yundi/QuantumEspresso/qe-6.0/PW/tools:/opt/packages/QuantumEspresso/qe-6.2.1/bin:/opt/packages/cmake-3.7.2//bin:/opt/packages/QuantumEspresso/qe-6.0/bin:/usr/lib64/qt-3.3/bin:/opt/packages/xdusage/2.1-1/bin:/opt/intel/advisor_2019.5.0.602216/bin64:/opt/intel/vtune_amplifier_2019.6.0.602217/bin64:/opt/intel/inspector_2019.5.0.602103/bin64:/opt/intel/itac/2019.5.041/intel64/bin:/opt/intel/clck/2019.5/bin/intel64:/opt/intel/compilers_and_libraries_2019.5.281/linux/bin/intel64:/opt/intel/compilers_and_libraries_2019.5.281/linux/mpi/intel64/libfabric/bin:/opt/intel/compilers_and_libraries_2019.5.281/linux/mpi/intel64/bin:/opt/intel/debugger_2019/gdb/intel64/bin:/opt/packages/slurm/default/bin:/opt/packages/allocations:/opt/packages/interact/bin:/usr/lib64/ccache:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/puppet/bin:/opt/intel/parallel_studio_xe_2019.5.075/bin:/bin:/sbin:/opt/puppetlabs/bin:.:/home/yundi/WIEN2k_18:.:/home/yundi/.local/bin:/home/yundi/bin
+++ export PATH
+++ _LMFILES_=/opt/modulefiles/psc_path/1.1:/opt/modulefiles/slurm/default:/opt/modulefiles/intel/19.5:/opt/modulefiles/xdusage/2.1-1:/opt/modulefiles/QuantumEspresso/6.0.0:/opt/modulefiles/cmake/3.7.2:/opt/modulefiles/mpi/gcc_mvapich
+++ export _LMFILES_
++ module load gcc/7.3.0
+++ /usr/bin/modulecmd bash load gcc/7.3.0
++ eval GCC_DIR=/opt/packages/gcc/7.3.0 ';export' 'GCC_DIR;GCC_VERSION=7.3.0' ';export' 'GCC_VERSION;LD_LIBRARY_PATH=/opt/packages/gcc/7.3.0/lib64:/opt/packages/gcc/7.3.0/lib:/usr/mpi/gcc/mvapich2-2.3b-hfi/lib:/opt/intel/itac/2019.5.041/intel64/slib:/opt/intel/compilers_and_libraries_2019.5.281/linux/mpi/intel64/libfabric/lib:/opt/intel/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release:/opt/intel/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib:/opt/intel/compilers_and_libraries_2019.5.281/linux/ipp/lib/intel64:/opt/intel/compilers_and_libraries_2019.5.281/linux/compiler/lib/intel64_lin:/opt/intel/compilers_and_libraries_2019.5.281/linux/mkl/lib/intel64_lin:/opt/intel/compilers_and_libraries_2019.5.281/linux/tbb/lib/intel64/gcc4.7:/opt/intel/debugger_2019/libipt/intel64/lib:/opt/intel/compilers_and_libraries_2019.5.281/linux/daal/lib/intel64_lin' ';export' 'LD_LIBRARY_PATH;LOADEDMODULES=psc_path/1.1:slurm/default:intel/19.5:xdusage/2.1-1:QuantumEspresso/6.0.0:cmake/3.7.2:mpi/gcc_mvapich:gcc/7.3.0' ';export' 'LOADEDMODULES;MANPATH=/opt/packages/gcc/7.3.0/share/man:/usr/mpi/gcc/mvapich2-2.3b-hfi/man:/opt/packages/xdusage/2.1-1/share/man:/opt/intel/itac/2019.5.041/man:/opt/intel/clck/2019.5/man:/opt/intel/man/common:/opt/intel/compilers_and_libraries_2019.5.281/linux/mpi/man:/opt/intel/documentation_2019/en/debugger/gdb-ia/man/:/opt/packages/slurm/default/share/man:/usr/local/man:/usr/share/man:' ';export' 'MANPATH;PATH=/opt/packages/gcc/7.3.0/bin:/usr/mpi/gcc/mvapich2-2.3b-hfi/bin:/opt/packages/aws/cli/bin:/home/yundi/WIEN2k_18:/home/yundi/WIEN2k_18/SRC_structeditor/bin:/home/yundi/WIEN2k_18/SRC_IRelast/script-elastic:/home/yundi/github/wannier_tools/bin:/home/yundi/anaconda3/bin:/home/yundi/QuantumEspresso/qe-6.0/PW/tools:/opt/packages/QuantumEspresso/qe-6.2.1/bin:/opt/packages/cmake-3.7.2//bin:/opt/packages/QuantumEspresso/qe-6.0/bin:/usr/lib64/qt-3.3/bin:/opt/packages/xdusage/2.1-1/bin:/opt/intel/advisor_2019.5.0.602216/bin64:/opt/intel/vtune_amplifier_2019.6.0.602217/bin64:/opt/intel/inspector_2019.5.0.602103/bin64:/opt/intel/itac/2019.5.041/intel64/bin:/opt/intel/clck/2019.5/bin/intel64:/opt/intel/compilers_and_libraries_2019.5.281/linux/bin/intel64:/opt/intel/compilers_and_libraries_2019.5.281/linux/mpi/intel64/libfabric/bin:/opt/intel/compilers_and_libraries_2019.5.281/linux/mpi/intel64/bin:/opt/intel/debugger_2019/gdb/intel64/bin:/opt/packages/slurm/default/bin:/opt/packages/allocations:/opt/packages/interact/bin:/usr/lib64/ccache:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/puppet/bin:/opt/intel/parallel_studio_xe_2019.5.075/bin:/bin:/sbin:/opt/puppetlabs/bin:.:/home/yundi/WIEN2k_18:.:/home/yundi/.local/bin:/home/yundi/bin' ';export' 'PATH;_LMFILES_=/opt/modulefiles/psc_path/1.1:/opt/modulefiles/slurm/default:/opt/modulefiles/intel/19.5:/opt/modulefiles/xdusage/2.1-1:/opt/modulefiles/QuantumEspresso/6.0.0:/opt/modulefiles/cmake/3.7.2:/opt/modulefiles/mpi/gcc_mvapich:/opt/modulefiles/gcc/7.3.0' ';export' '_LMFILES_;'
+++ GCC_DIR=/opt/packages/gcc/7.3.0
+++ export GCC_DIR
+++ GCC_VERSION=7.3.0
+++ export GCC_VERSION
+++ LD_LIBRARY_PATH=/opt/packages/gcc/7.3.0/lib64:/opt/packages/gcc/7.3.0/lib:/usr/mpi/gcc/mvapich2-2.3b-hfi/lib:/opt/intel/itac/2019.5.041/intel64/slib:/opt/intel/compilers_and_libraries_2019.5.281/linux/mpi/intel64/libfabric/lib:/opt/intel/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release:/opt/intel/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib:/opt/intel/compilers_and_libraries_2019.5.281/linux/ipp/lib/intel64:/opt/intel/compilers_and_libraries_2019.5.281/linux/compiler/lib/intel64_lin:/opt/intel/compilers_and_libraries_2019.5.281/linux/mkl/lib/intel64_lin:/opt/intel/compilers_and_libraries_2019.5.281/linux/tbb/lib/intel64/gcc4.7:/opt/intel/debugger_2019/libipt/intel64/lib:/opt/intel/compilers_and_libraries_2019.5.281/linux/daal/lib/intel64_lin
+++ export LD_LIBRARY_PATH
+++ LOADEDMODULES=psc_path/1.1:slurm/default:intel/19.5:xdusage/2.1-1:QuantumEspresso/6.0.0:cmake/3.7.2:mpi/gcc_mvapich:gcc/7.3.0
+++ export LOADEDMODULES
+++ MANPATH=/opt/packages/gcc/7.3.0/share/man:/usr/mpi/gcc/mvapich2-2.3b-hfi/man:/opt/packages/xdusage/2.1-1/share/man:/opt/intel/itac/2019.5.041/man:/opt/intel/clck/2019.5/man:/opt/intel/man/common:/opt/intel/compilers_and_libraries_2019.5.281/linux/mpi/man:/opt/intel/documentation_2019/en/debugger/gdb-ia/man/:/opt/packages/slurm/default/share/man:/usr/local/man:/usr/share/man:
+++ export MANPATH
+++ PATH=/opt/packages/gcc/7.3.0/bin:/usr/mpi/gcc/mvapich2-2.3b-hfi/bin:/opt/packages/aws/cli/bin:/home/yundi/WIEN2k_18:/home/yundi/WIEN2k_18/SRC_structeditor/bin:/home/yundi/WIEN2k_18/SRC_IRelast/script-elastic:/home/yundi/github/wannier_tools/bin:/home/yundi/anaconda3/bin:/home/yundi/QuantumEspresso/qe-6.0/PW/tools:/opt/packages/QuantumEspresso/qe-6.2.1/bin:/opt/packages/cmake-3.7.2//bin:/opt/packages/QuantumEspresso/qe-6.0/bin:/usr/lib64/qt-3.3/bin:/opt/packages/xdusage/2.1-1/bin:/opt/intel/advisor_2019.5.0.602216/bin64:/opt/intel/vtune_amplifier_2019.6.0.602217/bin64:/opt/intel/inspector_2019.5.0.602103/bin64:/opt/intel/itac/2019.5.041/intel64/bin:/opt/intel/clck/2019.5/bin/intel64:/opt/intel/compilers_and_libraries_2019.5.281/linux/bin/intel64:/opt/intel/compilers_and_libraries_2019.5.281/linux/mpi/intel64/libfabric/bin:/opt/intel/compilers_and_libraries_2019.5.281/linux/mpi/intel64/bin:/opt/intel/debugger_2019/gdb/intel64/bin:/opt/packages/slurm/default/bin:/opt/packages/allocations:/opt/packages/interact/bin:/usr/lib64/ccache:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/puppet/bin:/opt/intel/parallel_studio_xe_2019.5.075/bin:/bin:/sbin:/opt/puppetlabs/bin:.:/home/yundi/WIEN2k_18:.:/home/yundi/.local/bin:/home/yundi/bin
+++ export PATH
+++ _LMFILES_=/opt/modulefiles/psc_path/1.1:/opt/modulefiles/slurm/default:/opt/modulefiles/intel/19.5:/opt/modulefiles/xdusage/2.1-1:/opt/modulefiles/QuantumEspresso/6.0.0:/opt/modulefiles/cmake/3.7.2:/opt/modulefiles/mpi/gcc_mvapich:/opt/modulefiles/gcc/7.3.0
+++ export _LMFILES_
++ mpirun -np 28 /pylon5/mr5fpkp/yundi/qe-benchmark/q-e-mpich-gnu/bin/pw.x -npool 28 -inp scf.in
+
+     Program PWSCF v.6.3 starts on  9Jan2020 at 11:45:51 
+
+     This program is part of the open-source Quantum ESPRESSO suite
+     for quantum simulation of materials; please cite
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 21 395502 (2009);
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 29 465901 (2017);
+          URL http://www.quantum-espresso.org", 
+     in publications or presentations arising from this work. More details at
+     http://www.quantum-espresso.org/quote
+
+     Parallel version (MPI), running on    28 processors
+
+     MPI processes distributed on     1 nodes
+     K-points division:     npool     =      28
+     Reading input from scf.in
+
+     Current dimensions of program PWSCF are:
+     Max number of different atomic species (ntypx) = 10
+     Max number of k-points (npk) = 400000
+     Max angular momentum in pseudopotentials (lmaxx) =  3
+     Message from routine iosys:
+     BEWARE:  force calculation with tetrahedra (not recommanded)
+     Message from routine iosys:
+     BEWARE: stress calculation with tetrahedra (not recommanded)
+
+     Subspace diagonalization in iterative solution of the eigenvalue problem:
+     a serial algorithm will be used
+
+     [opt_tetra]  Optimized tetrahedron method is used.
+
+     G-vector sticks info
+     --------------------
+     sticks:   dense  smooth     PW     G-vecs:    dense   smooth      PW
+     Sum         409     409    121                10359    10359    1797
+
+
+
+     bravais-lattice index     =            4
+     lattice parameter (alat)  =       4.2813  a.u.
+     unit-cell volume          =     107.0738 (a.u.)^3
+     number of atoms/cell      =            2
+     number of atomic types    =            1
+     number of electrons       =         8.00
+     number of Kohn-Sham states=            8
+     kinetic-energy cutoff     =      80.0000  Ry
+     charge density cutoff     =     320.0000  Ry
+     convergence threshold     =      1.0E-10
+     mixing beta               =       0.7000
+     number of iterations used =            8  plain     mixing
+     Exchange-correlation      = PBE ( 1  4  3  4 0 0)
+
+     celldm(1)=   4.281324  celldm(2)=   0.000000  celldm(3)=   1.575500
+     celldm(4)=   0.000000  celldm(5)=   0.000000  celldm(6)=   0.000000
+
+     crystal axes: (cart. coord. in units of alat)
+               a(1) = (   1.000000   0.000000   0.000000 )  
+               a(2) = (  -0.500000   0.866025   0.000000 )  
+               a(3) = (   0.000000   0.000000   1.575500 )  
+
+     reciprocal axes: (cart. coord. in units 2 pi/alat)
+               b(1) = (  1.000000  0.577350 -0.000000 )  
+               b(2) = (  0.000000  1.154701  0.000000 )  
+               b(3) = (  0.000000 -0.000000  0.634719 )  
+
+
+     PseudoPot. # 1 for Be read from file:
+     ./Be_ONCV_PBE-1.0.upf
+     MD5 check sum: afcc3796bf782e11e5cbfa41062fb4f8
+     Pseudo is Norm-conserving, Zval =  4.0
+     Generated using ONCVPSP code by D. R. Hamann
+     Using radial grid of  602 points,  4 beta functions with: 
+                l(1) =   0
+                l(2) =   0
+                l(3) =   1
+                l(4) =   1
+
+     atomic species   valence    mass     pseudopotential
+        Be             4.00     9.01218     Be( 1.00)
+
+      8 Sym. Ops., with inversion, found ( 4 have fractional translation)
+
+
+
+   Cartesian axes
+
+     site n.     atom                  positions (alat units)
+         1           Be  tau(   1) = (  -0.0000050   0.5773532   0.3938750  )
+         2           Be  tau(   2) = (   0.5000050   0.2886722   1.1816250  )
+
+     number of k points=  2041 (tetrahedron method)
+
+     Number of k-points >= 100: set verbosity='high' to print them.
+
+     Dense  grid:    10359 G-vectors     FFT dimensions: (  25,  25,  40)
+
+     Estimated max dynamical RAM per process >      19.62 MB
+
+     Estimated total dynamical RAM >     549.39 MB
+
+     Initial potential from superposition of free atoms
+
+     starting charge    7.95024, renormalised to    8.00000
+     Starting wfcs are random
+
+     total cpu time spent up to now is       20.6 secs
+
+     Self-consistent Calculation
+
+     iteration #  1     ecut=    80.00 Ry     beta= 0.70
+     Davidson diagonalization with overlap
+     ethr =  1.00E-02,  avg # of iterations =  6.4
+
+     Threshold (ethr) on eigenvalues was too large:
+     Diagonalizing with lowered threshold
+
+     Davidson diagonalization with overlap
+     ethr =  7.14E-05,  avg # of iterations =  2.2
+
+     total cpu time spent up to now is       34.0 secs
+
+     total energy              =     -53.22090948 Ry
+     Harris-Foulkes estimate   =     -53.22249374 Ry
+     estimated scf accuracy    <       0.00550700 Ry
+
+     iteration #  2     ecut=    80.00 Ry     beta= 0.70
+     Davidson diagonalization with overlap
+     ethr =  6.88E-05,  avg # of iterations =  1.0
+
+     total cpu time spent up to now is       39.2 secs
+
+     total energy              =     -53.22094800 Ry
+     Harris-Foulkes estimate   =     -53.22102119 Ry
+     estimated scf accuracy    <       0.00034876 Ry
+
+     iteration #  3     ecut=    80.00 Ry     beta= 0.70
+     Davidson diagonalization with overlap
+     ethr =  4.36E-06,  avg # of iterations =  1.6
+
+     total cpu time spent up to now is       44.7 secs
+
+     total energy              =     -53.22096175 Ry
+     Harris-Foulkes estimate   =     -53.22096166 Ry
+     estimated scf accuracy    <       0.00000056 Ry
+
+     iteration #  4     ecut=    80.00 Ry     beta= 0.70
+     Davidson diagonalization with overlap
+     ethr =  7.02E-09,  avg # of iterations =  2.0
+
+     total cpu time spent up to now is       50.3 secs
+
+     total energy              =     -53.22096187 Ry
+     Harris-Foulkes estimate   =     -53.22096187 Ry
+     estimated scf accuracy    <          8.1E-09 Ry
+
+     iteration #  5     ecut=    80.00 Ry     beta= 0.70
+     Davidson diagonalization with overlap
+     ethr =  1.02E-10,  avg # of iterations =  1.3
+
+     total cpu time spent up to now is       55.7 secs
+
+     total energy              =     -53.22096187 Ry
+     Harris-Foulkes estimate   =     -53.22096187 Ry
+     estimated scf accuracy    <          1.4E-10 Ry
+
+     iteration #  6     ecut=    80.00 Ry     beta= 0.70
+     Davidson diagonalization with overlap
+     ethr =  1.71E-12,  avg # of iterations =  2.0
+
+     total cpu time spent up to now is       61.3 secs
+
+     End of self-consistent calculation
+
+     Number of k-points >= 100: set verbosity='high' to print the bands.
+
+     the Fermi energy is     9.0975 ev
+
+!    total energy              =     -53.22096187 Ry
+     Harris-Foulkes estimate   =     -53.22096187 Ry
+     estimated scf accuracy    <          5.3E-12 Ry
+
+     The total energy is the sum of the following terms:
+
+     one-electron contribution =     -25.83738127 Ry
+     hartree contribution      =       5.56783257 Ry
+     xc contribution           =      -8.43411725 Ry
+     ewald contribution        =     -24.51729592 Ry
+
+     convergence has been achieved in   6 iterations
+
+     Forces acting on atoms (cartesian axes, Ry/au):
+
+     atom    1 type  1   force =     0.00002718   -0.00001569    0.00000000
+     atom    2 type  1   force =    -0.00002718    0.00001569    0.00000000
+
+     Total force =     0.000044     Total SCF correction =     0.000000
+
+
+     Computing stress (Cartesian axis) and pressure
+
+          total   stress  (Ry/bohr**3)                   (kbar)     P=    0.04
+   0.00000107  -0.00000134   0.00000000          0.16     -0.20      0.00
+  -0.00000134  -0.00000047   0.00000000         -0.20     -0.07      0.00
+   0.00000000   0.00000000   0.00000020          0.00      0.00      0.03
+
+
+     Writing output data file Be.save/
+
+     init_run     :      0.56s CPU      0.62s WALL (       1 calls)
+     electrons    :     40.48s CPU     40.75s WALL (       1 calls)
+     forces       :      0.11s CPU      0.11s WALL (       1 calls)
+     stress       :      0.52s CPU      0.53s WALL (       1 calls)
+
+     Called by init_run:
+     wfcinit      :      0.43s CPU      0.45s WALL (       1 calls)
+     potinit      :      0.05s CPU      0.06s WALL (       1 calls)
+     hinit0       :      0.07s CPU      0.10s WALL (       1 calls)
+
+     Called by electrons:
+     c_bands      :     10.54s CPU     10.75s WALL (       7 calls)
+     sum_band     :     29.76s CPU     29.79s WALL (       7 calls)
+     v_of_rho     :      0.12s CPU      0.12s WALL (       7 calls)
+     mix_rho      :      0.01s CPU      0.02s WALL (       7 calls)
+
+     Called by c_bands:
+     init_us_2    :      0.44s CPU      0.45s WALL (    1241 calls)
+     cegterg      :      7.22s CPU      7.40s WALL (     511 calls)
+
+     Called by sum_band:
+
+     Called by *egterg:
+     h_psi        :      6.68s CPU      6.83s WALL (    1933 calls)
+     g_psi        :      0.07s CPU      0.07s WALL (    1349 calls)
+     cdiaghg      :      0.22s CPU      0.23s WALL (    1787 calls)
+
+     Called by h_psi:
+     h_psi:pot    :      6.58s CPU      6.73s WALL (    1933 calls)
+     h_psi:calbec :      0.13s CPU      0.14s WALL (    1933 calls)
+     vloc_psi     :      6.32s CPU      6.46s WALL (    1933 calls)
+     add_vuspsi   :      0.12s CPU      0.12s WALL (    1933 calls)
+
+     General routines
+     calbec       :      0.15s CPU      0.16s WALL (    2298 calls)
+     fft          :      0.02s CPU      0.05s WALL (      79 calls)
+     ffts         :      0.00s CPU      0.00s WALL (       7 calls)
+     fftw         :      6.41s CPU      6.55s WALL (   27866 calls)
+
+     Parallel routines
+
+     PWSCF        :  1m 2.24s CPU     1m 4.76s WALL
+
+
+   This run was terminated on:  11:46:56   9Jan2020            
+
+=------------------------------------------------------------------------------=
+   JOB DONE.
+=------------------------------------------------------------------------------=
++ mpirun -np 28 /pylon5/mr5fpkp/yundi/qe-benchmark/q-e-mpich-gnu/bin/pw.x -npool 28 -inp bnd.in
+
+     Program PWSCF v.6.3 starts on  9Jan2020 at 11:46:57 
+
+     This program is part of the open-source Quantum ESPRESSO suite
+     for quantum simulation of materials; please cite
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 21 395502 (2009);
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 29 465901 (2017);
+          URL http://www.quantum-espresso.org", 
+     in publications or presentations arising from this work. More details at
+     http://www.quantum-espresso.org/quote
+
+     Parallel version (MPI), running on    28 processors
+
+     MPI processes distributed on     1 nodes
+     K-points division:     npool     =      28
+     Reading input from bnd.in
+
+     Current dimensions of program PWSCF are:
+     Max number of different atomic species (ntypx) = 10
+     Max number of k-points (npk) = 400000
+     Max angular momentum in pseudopotentials (lmaxx) =  3
+
+     Atomic positions and unit cell read from directory:
+     ./Be.save/
+
+
+     Subspace diagonalization in iterative solution of the eigenvalue problem:
+     a serial algorithm will be used
+
+
+     G-vector sticks info
+     --------------------
+     sticks:   dense  smooth     PW     G-vecs:    dense   smooth      PW
+     Sum         409     409    121                10359    10359    1797
+
+
+
+     bravais-lattice index     =            4
+     lattice parameter (alat)  =       4.2813  a.u.
+     unit-cell volume          =     107.0738 (a.u.)^3
+     number of atoms/cell      =            2
+     number of atomic types    =            1
+     number of electrons       =         8.00
+     number of Kohn-Sham states=            8
+     kinetic-energy cutoff     =      80.0000  Ry
+     charge density cutoff     =     320.0000  Ry
+     Exchange-correlation      = PBE ( 1  4  3  4 0 0)
+
+     celldm(1)=   4.281324  celldm(2)=   0.000000  celldm(3)=   1.575500
+     celldm(4)=   0.000000  celldm(5)=   0.000000  celldm(6)=   0.000000
+
+     crystal axes: (cart. coord. in units of alat)
+               a(1) = (   1.000000   0.000000   0.000000 )  
+               a(2) = (  -0.500000   0.866025   0.000000 )  
+               a(3) = (   0.000000   0.000000   1.575500 )  
+
+     reciprocal axes: (cart. coord. in units 2 pi/alat)
+               b(1) = (  1.000000  0.577350 -0.000000 )  
+               b(2) = (  0.000000  1.154701  0.000000 )  
+               b(3) = (  0.000000 -0.000000  0.634719 )  
+
+
+     PseudoPot. # 1 for Be read from file:
+     ./Be_ONCV_PBE-1.0.upf
+     MD5 check sum: afcc3796bf782e11e5cbfa41062fb4f8
+     Pseudo is Norm-conserving, Zval =  4.0
+     Generated using ONCVPSP code by D. R. Hamann
+     Using radial grid of  602 points,  4 beta functions with: 
+                l(1) =   0
+                l(2) =   0
+                l(3) =   1
+                l(4) =   1
+
+     atomic species   valence    mass     pseudopotential
+        Be             4.00     9.01218     Be( 1.00)
+
+      8 Sym. Ops., with inversion, found ( 4 have fractional translation)
+
+
+
+   Cartesian axes
+
+     site n.     atom                  positions (alat units)
+         1           Be  tau(   1) = (  -0.0000050   0.5773532   0.3938750  )
+         2           Be  tau(   2) = (   0.5000050   0.2886722   1.1816250  )
+
+     number of k points=   401  gaussian smearing, width (Ry)=  0.0200
+
+     Number of k-points >= 100: set verbosity='high' to print them.
+
+     Dense  grid:    10359 G-vectors     FFT dimensions: (  25,  25,  40)
+
+     Estimated max dynamical RAM per process >       5.21 MB
+
+     Estimated total dynamical RAM >     145.94 MB
+
+     The potential is recalculated from file :
+     ./Be.save/charge-density.dat
+
+     Starting wfcs are random
+
+     Band Structure Calculation
+     Davidson diagonalization with overlap
+
+     ethr =  1.25E-12,  avg # of iterations = 19.3
+
+     total cpu time spent up to now is        6.0 secs
+
+     End of band structure calculation
+
+     Number of k-points >= 100: set verbosity='high' to print the bands.
+
+     Writing output data file Be.save/
+
+     init_run     :      0.12s CPU      0.21s WALL (       1 calls)
+     electrons    :      2.03s CPU      2.07s WALL (       1 calls)
+
+     Called by init_run:
+     wfcinit      :      0.00s CPU      0.03s WALL (       1 calls)
+     potinit      :      0.05s CPU      0.06s WALL (       1 calls)
+     hinit0       :      0.06s CPU      0.11s WALL (       1 calls)
+
+     Called by electrons:
+     c_bands      :      2.03s CPU      2.07s WALL (       1 calls)
+     v_of_rho     :      0.02s CPU      0.02s WALL (       1 calls)
+
+     Called by c_bands:
+     init_us_2    :      0.01s CPU      0.01s WALL (      15 calls)
+     cegterg      :      1.48s CPU      1.51s WALL (      30 calls)
+
+     Called by sum_band:
+
+     Called by *egterg:
+     h_psi        :      1.29s CPU      1.31s WALL (     545 calls)
+     g_psi        :      0.02s CPU      0.02s WALL (     500 calls)
+     cdiaghg      :      0.08s CPU      0.08s WALL (     515 calls)
+
+     Called by h_psi:
+     h_psi:pot    :      1.28s CPU      1.30s WALL (     545 calls)
+     h_psi:calbec :      0.03s CPU      0.03s WALL (     545 calls)
+     vloc_psi     :      1.22s CPU      1.24s WALL (     545 calls)
+     add_vuspsi   :      0.02s CPU      0.02s WALL (     545 calls)
+
+     General routines
+     calbec       :      0.03s CPU      0.03s WALL (     545 calls)
+     fft          :      0.00s CPU      0.05s WALL (      11 calls)
+     fftw         :      1.06s CPU      1.08s WALL (    4454 calls)
+     davcio       :      0.00s CPU      0.00s WALL (      30 calls)
+
+     Parallel routines
+
+     PWSCF        :     5.76s CPU         6.34s WALL
+
+
+   This run was terminated on:  11:47: 3   9Jan2020            
+
+=------------------------------------------------------------------------------=
+   JOB DONE.
+=------------------------------------------------------------------------------=

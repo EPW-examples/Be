@@ -1,0 +1,36 @@
+&control
+    calculation = 'bands'
+    prefix      = 'Be'
+    pseudo_dir  = './'
+    outdir = './'
+    tprnfor = .true.,
+    tstress = .true.,
+    etot_conv_thr = 1.0d-8
+    forc_conv_thr = 1.0d-6
+/
+&system
+    ibrav = 4
+    a     = 2.265579
+    c     = 3.5694197999999995
+    nat   = 2, ntyp = 1
+    ecutwfc = 80
+    ecutrho = 320,
+    occupations = 'smearing'
+    degauss = 0.02
+/
+&electrons
+    diagonalization = 'david'
+    conv_thr  = 1.0d-10
+/
+ATOMIC_SPECIES
+Be 9.012182   Be_ONCV_PBE-1.0.upf
+ATOMIC_POSITIONS {crystal}
+Be    0.33333    0.66667    0.25000 
+Be    0.66667    0.33333    0.75000
+K_POINTS {crystal_b}
+5
+0.00 0.00 0.00   100 
+0.00 0.00 0.50   100
+0.333333 0.3333333 0.0000 100
+0.333333 0.3333333 0.5000 100
+0.5      0.0       0.0 100
